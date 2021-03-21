@@ -7,19 +7,27 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 std::vector<std::string> split(
-        std::string in,
-        std::string delimiter
+    std::string in,
+    char delimiter
+);
+
+std::vector<std::string> split_csv_row(
+    std::string row,
+    char field_delimiter,
+    char quote_delimiter 
 );
 
 std::map<std::string, std::vector<std::string>> csv_to_map(
-    std::fstream,
+    std::string file_name,
     char field_delimiter,
-    char quote_delimitequote_delimiterr 
+    char quote_delimiter
 );
 
-std::fstream open_file(const std::string& file_name);
+template <class T>
+T open_file(const std::string& file_name);
 
 std::string file_to_string(std::ifstream& in);
 
